@@ -1,0 +1,59 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      X3;
+}
+// * Lipid Degraders * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 0.0112; //from "DavidGaden" divided by 10
+
+boundaryField
+{
+    inlet
+    {
+	type	groovyBC;
+	valueExpression "X3Outlet";
+	variables "X3Outlet{outlet}=average(X3);";
+	value uniform 0.112;
+    }
+
+    outlet
+    {
+        type            fixedValue;
+        value           uniform 0.112;
+    }
+
+    wall
+    {
+        type            zeroGradient;
+    }
+
+    wall-tank
+    {
+        type            zeroGradient;
+    }
+
+    bot
+    {
+        type            zeroGradient;
+    }
+
+
+    frontAndBackPlanes
+    {
+        type            empty;
+    }
+}
+
+// ************************************************************************* //

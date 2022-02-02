@@ -1,0 +1,59 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      H2;
+}
+// * Hydrogen (dissolved) * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 0.0000005; //kg/m3
+
+boundaryField
+{
+    inlet
+    {
+	type	groovyBC;
+	valueExpression "H2Outlet";
+	variables "H2Outlet{outlet}=average(H2);";
+	value uniform 0.0000005;
+    }
+
+    outlet
+    {
+        type            fixedValue;
+        value           uniform 0.0000005;
+    }
+
+    wall
+    {
+        type            zeroGradient;
+    }
+
+    wall-tank
+    {
+        type            zeroGradient;
+    }
+
+    bot
+    {
+        type            zeroGradient;
+    }
+
+
+    frontAndBackPlanes
+    {
+        type            empty;
+    }
+}
+
+// ************************************************************************* //
