@@ -1,0 +1,221 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Writes graph data for specified fields along a line, specified by start
+    and end points.
+
+\*------------12---------------------------------------------------------------*/
+
+
+OneMinusUIpsi4
+{
+  type swakExpression;
+  valueType internalField;
+  verbose true;
+    expression "mag(psi4-psi4Avg)*vol()/(2*psi4Avg*totalVolume)";
+    variables
+    (
+        "totalVolume=sum(vol());"
+        "psi4Avg=sum(psi4*vol())/totalVolume;"
+    );
+
+  accumulations
+  (
+   sum
+  );
+
+autowrite 		true;
+outputControlMode	outputTime;
+writeStartTime 		0;
+}
+
+
+OneMinusUIpsi5
+{
+  type swakExpression;
+  valueType internalField;
+  verbose true;
+    expression "mag(psi5-psi5Avg)*vol()/(2*psi5Avg*totalVolume)";
+    variables
+    (
+        "totalVolume=sum(vol());"
+        "psi5Avg=sum(psi5*vol())/totalVolume;"
+    );
+
+  accumulations
+  (
+   sum
+  );
+
+autowrite 		true;
+outputControlMode	outputTime;
+writeStartTime 		0;
+}
+
+
+OneMinusUIpsi6
+{
+  type swakExpression;
+  valueType internalField;
+  verbose true;
+    expression "mag(psi6-psi6Avg)*vol()/(2*psi6Avg*totalVolume)";
+    variables
+    (
+        "totalVolume=sum(vol());"
+        "psi6Avg=sum(psi6*vol())/totalVolume;"
+    );
+
+  accumulations
+  (
+   sum
+  );
+
+autowrite 		true;
+outputControlMode	outputTime;
+writeStartTime 		0;
+}
+
+
+OneMinusUIpsi7
+{
+  type swakExpression;
+  valueType internalField;
+  verbose true;
+    expression "mag(psi7-psi7Avg)*vol()/(2*psi7Avg*totalVolume)";
+    variables
+    (
+        "totalVolume=sum(vol());"
+        "psi7Avg=sum(psi7*vol())/totalVolume;"
+    );
+
+  accumulations
+  (
+   sum
+  );
+
+autowrite 		true;
+outputControlMode	outputTime;
+writeStartTime 		0;
+}
+
+
+OneMinusUIpsi77
+{
+  type swakExpression;
+  valueType internalField;
+  verbose true;
+    expression "mag(psi77-psi77Avg)*vol()/(2*psi77Avg*totalVolume)";
+    variables
+    (
+        "totalVolume=sum(vol());"
+        "psi77Avg=sum(psi77*vol())/totalVolume;"
+    );
+
+  accumulations
+  (
+   sum
+  );
+
+autowrite 		true;
+outputControlMode	outputTime;
+writeStartTime 		0;
+}
+
+
+OneMinusUIpsi777
+{
+  type swakExpression;
+  valueType internalField;
+  verbose true;
+    expression "mag(psi777-psi777Avg)*vol()/(2*psi777Avg*totalVolume)";
+    variables
+    (
+        "totalVolume=sum(vol());"
+        "psi777Avg=sum(psi777*vol())/totalVolume;"
+    );
+
+  accumulations
+  (
+   sum
+  );
+
+autowrite 		true;
+outputControlMode	outputTime;
+writeStartTime 		0;
+}
+
+
+OneMinusUIpsi8
+{
+  type swakExpression;
+  valueType internalField;
+  verbose true;
+    expression "mag(psi8-psi8Avg)*vol()/(2*psi8Avg*totalVolume)";
+    variables
+    (
+        "totalVolume=sum(vol());"
+        "psi8Avg=sum(psi8*vol())/totalVolume;"
+    );
+
+  accumulations
+  (
+   sum
+  );
+
+autowrite 		true;
+outputControlMode	outputTime;
+writeStartTime 		0;
+}
+
+OneMinusUIpH
+{
+  type swakExpression;
+  valueType internalField;
+  verbose true;
+    expression "mag(pH-pHAvg)*vol()/(2*pHAvg*totalVolume)";
+    variables
+    (
+        "totalVolume=sum(vol());"
+        "pHAvg=sum(pH*vol())/totalVolume;"
+    );
+
+  accumulations
+  (
+   sum
+  );
+
+autowrite 		true;
+outputControlMode	outputTime;
+writeStartTime 		0;
+}
+
+OneMinusUITemp
+{
+  type swakExpression;
+  valueType internalField;
+  verbose true;
+    expression "mag(T-TAvg)*vol()/(2*TAvg*totalVolume)";
+    variables
+    (
+        "totalVolume=sum(vol());"
+        "TAvg=sum(T*vol())/totalVolume;"
+    );
+
+  accumulations
+  (
+   sum
+  );
+
+autowrite 		true;
+outputControlMode	outputTime;
+writeStartTime 		0;
+}
+
+
+
+// ************************************************************************* //
