@@ -16,7 +16,7 @@ FoamFile
 
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 0.0747;
+internalField   uniform 0.0001;
 
 boundaryField
 {
@@ -25,13 +25,13 @@ boundaryField
 	type	groovyBC;
 	valueExpression "HplusOutlet";
 	variables "HplusOutlet{outlet}=average(Hplus);";
-	value uniform 0.0747;
+	value uniform 0.0001;
     }
 
     outlet
     {
         type            fixedValue;
-        value           uniform 0.0747;
+        value           uniform 0.0001;
     }
 
     wall
