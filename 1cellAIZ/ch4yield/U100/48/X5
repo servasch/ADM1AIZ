@@ -1,0 +1,59 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "48";
+    object      X5;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 0.0419717;
+
+boundaryField
+{
+    inlet
+    {
+        type            groovyBC;
+        refValue        uniform 0.0419705;
+        refGradient     uniform 0;
+        valueFraction   uniform 1;
+        value           uniform 0.0419705;
+        valueExpression "X5Outlet";
+        gradientExpression "0";
+        fractionExpression "1";
+        evaluateDuringConstruction 0;
+        cyclicSlave     0;
+        variables       "X5Outlet{outlet}=average(X5);";
+        timelines       (
+);
+        lookuptables    (
+);
+        lookuptables2D  (
+);
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    fixedWalls
+    {
+        type            zeroGradient;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+}
+
+
+// ************************************************************************* //

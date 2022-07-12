@@ -1,0 +1,48 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      Xc;
+}
+// * decomposing Degraders * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 1.25; // kg/m3 from AIZ data by Simone, it is 2.11 kg oTR/m3d with 59% degrability equals to 1.25 kg/m3.d !
+
+boundaryField
+{
+    inlet
+    {
+	type	groovyBC;
+	valueExpression "XcOutlet";
+	variables "XcOutlet{outlet}=1.25+average(Xc);";
+	value uniform 1.25;   // kg/m3 from AIZ data by Simone, it is 2.11 kg oTR/m3d with 59% degrability equals to 1.25 kg/m3.d
+    }
+
+    outlet
+    {
+        type            zeroGradient;
+    }
+
+    fixedWalls
+    {
+        type            zeroGradient;
+    }
+
+
+    frontAndBack
+    {
+        type            empty;
+    }
+}
+
+// ************************************************************************* //
